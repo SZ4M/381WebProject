@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Register - Brand</title>
+    <title>Pricing - Brand</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
@@ -18,24 +18,32 @@
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.html">Login</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="registration.html">Signup</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Signup</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <main class="page registration-page">
-        <section class="clean-block clean-form dark">
+    <main class="page pricing-table-page">
+        <section class="clean-block clean-pricing dark">
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">Registration</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                    <section class="clean-block clean-form dark">
+                        <h2 class="text-info">Add New Product</h2>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
+                        <div class="container">
+                            <form>
+                                <div class="form-group"><label>Product Name</label><input class="form-control" type="text"></div>
+                                <div class="form-group"><label>Subject</label><input class="form-control" type="text"></div>
+                                <div class="form-group"><label>Product Category</label><input class="form-control" type="text"></div>
+                                <div class="form-group"><label>Description</label><textarea class="form-control"></textarea></div>
+                                <div class="form-group"><label>Product Images</label><input type="file"></div>
+                                <div class="form-group"><button class="btn btn-primary btn-block" type="button">Send</button></div>
+                            </form>
+                        </div>
+                    </section>
                 </div>
-                <form>
-                    <div class="form-group"><label for="name">Name</label><input class="form-control item" type="text" id="name"></div>
-                    <div class="form-group"><label for="password">Password</label><input class="form-control item" type="password" id="password"></div>
-                    <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" id="email"></div><button class="btn btn-primary btn-block" type="submit">Sign Up</button></form>
             </div>
         </section>
     </main>
@@ -45,8 +53,8 @@
                 <div class="col-sm-3">
                     <h5>Get started</h5>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="registration.html">Sign up</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="registration.php">Sign up</a></li>
                     </ul>
                 </div>
             </div>

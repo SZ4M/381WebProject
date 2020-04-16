@@ -18,9 +18,9 @@
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.html">Login</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="registration.html">Signup</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Signup</a></li>
                 </ul>
             </div>
         </div>
@@ -155,8 +155,8 @@
                 <div class="col-sm-3">
                     <h5>Get started</h5>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="registration.html">Sign up</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="registration.php">Sign up</a></li>
                     </ul>
                 </div>
             </div>
