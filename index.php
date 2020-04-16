@@ -14,7 +14,9 @@
 
 <body>
 <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-    <div class="container"><a class="navbar-brand logo" href="#">Brand</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container"><a class="navbar-brand logo" href="#">Brand</a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
@@ -28,10 +30,19 @@
     </div>
 </nav>
 <main class="page landing-page">
-    <section class="clean-block clean-hero" style="background-image:url(&quot;assets/img/tech/image4.jpg&quot;);color:rgba(9, 162, 255, 0.85);"><div class="text" id="homePageSearchSection">
+    <section class="clean-block clean-hero"
+             style="background-image:url(&quot;assets/img/tech/image4.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
+        <div class="text" id="homePageSearchSection">
             <h2>Lorem ipsum dolor sit amet.</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p><input type="search" class="bg-light border rounded border-white shadow" style="width: 440px;height: 44px;margin: 50px;" disabled
-                                                                                                                                             placeholder="Enter The Product.." autocomplete="on" autofocus required /><button class="btn btn-outline-light btn-lg" type="button">Search</button></div></section>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis
+                vitae leo.</p>
+
+            <input type="search" class="bg-light border rounded border-white shadow"
+                                     style="width: 440px;height: 44px;margin: 50px;"
+                                     placeholder="Enter The Product.." autocomplete="on" autofocus required/>
+            <button class="btn btn-outline-light btn-lg" type="button">Search</button>
+        </div>
+    </section>
 </main>
 <footer class="page-footer dark">
     <div class="container">
