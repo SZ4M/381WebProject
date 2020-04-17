@@ -1,3 +1,13 @@
+
+<?php
+
+
+if (!isset($_COOKIE['waa']))
+    header('location:index.php?error=Please login ');
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 
