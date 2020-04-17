@@ -36,11 +36,14 @@
             <h2>Lorem ipsum dolor sit amet.</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis
                 vitae leo.</p>
-
+            <form action="" method="post">
             <input type="search" class="bg-light border rounded border-white shadow"
                                      style="width: 440px;height: 44px;margin: 50px;"
                                      placeholder="Enter The Product.." autocomplete="on" autofocus required/>
-            <button class="btn btn-outline-light btn-lg" type="button">Search</button>
+
+                <div class="form-group"><button class="btn btn-outline-light btn-lg" type="submit">Search</button></div>
+
+                </form>
         </div>
     </section>
 </main>
