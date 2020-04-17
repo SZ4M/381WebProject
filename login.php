@@ -33,7 +33,7 @@
                 <h2 class="text-info">Log In</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
             </div>
-            <form action="CheckUser.php" method="post">
+            <form action="includes/CheckUser.php" method="post">
                 <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" name="EMAIL" id="email"></div>
                 <div class="form-group"><label for="password">Password</label><input class="form-control" type="password" name="PASSWORD" id="password"></div>
                 <div class="form-group">

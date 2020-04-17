@@ -31,7 +31,7 @@ if (!isset($_COOKIE['vaa']))
                 <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Signup</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="Logout.php">Signout</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="includes/Logout.php">Signout</a></li>
 
             </ul>
         </div>

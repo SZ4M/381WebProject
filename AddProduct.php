@@ -29,8 +29,8 @@ if (!isset($_COOKIE['saa']))
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Signup</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="UserPage.php">Profile</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="includes/Logout.php.php">Signout</a></li>
                 </ul>
             </div>
         </div>

@@ -33,7 +33,7 @@
                 <h2 class="text-info">Registration</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
             </div>
-            <form action="regCheck.php" method="post">
+            <form action="includes/regCheck.php" method="post">
                 <div class="form-group"><label for="name">Name</label><input class="form-control item" type="text" name="NAME" id="name"></div>
                 <div class="form-group"><label for="password">Password</label><input class="form-control item" type="password" name="PASSWORD" id="password"></div>
                 <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" name="EMAIL" id="email"></div><button class="btn btn-primary btn-block" type="submit">Sign Up</button></form>

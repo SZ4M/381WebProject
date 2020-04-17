@@ -3,11 +3,11 @@
 
 
 
+include 'DbConfig.php';
 
+//$aa= mysqli_connect('localhost','root','');
 
-$aa= mysqli_connect('localhost','root','');
-
-mysqli_select_db($aa,'rregestration');
+mysqli_select_db($conn,$dbName);
 
 
 $email= $_POST['EMAIL'];
@@ -15,7 +15,7 @@ $password= $_POST['PASSWORD'];
 
 $selected = "select * from usertable where email = '$email' && password ='$password' " ;
 
-$Result = mysqli_query($aa,$selected);
+$Result = mysqli_query($conn,$selected);
 
 $counter = mysqli_num_rows($Result) ;
 
@@ -26,12 +26,12 @@ if($counter==1){
     setcookie('saa','yes',time()+(3600*3),'/');
     setcookie('eaa','yes',time()+(3600*3),'/');
 
-    header('location:ResultPage.php');
+    header('location:../ResultPage.php');
 }
 
 else{
 
-    header('location:login.php');
+    header('location:../login.php');
 }
 
 
