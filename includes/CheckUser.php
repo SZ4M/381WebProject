@@ -20,7 +20,7 @@ $Result = mysqli_query($conn,$selected);
 $counter = mysqli_num_rows($Result) ;
 
 if($counter==1){
-
+    $_COOKIE['userEmail']= $email;
     setcookie('vaa','yes',time()+(3600*3),'/');
     setcookie('waa','yes',time()+(3600*3),'/');
     setcookie('saa','yes',time()+(3600*3),'/');

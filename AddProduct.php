@@ -30,7 +30,7 @@ if (!isset($_COOKIE['saa']))
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="UserPage.php">Profile</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="includes/Logout.php.php">Signout</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="includes/Logout.php">Signout</a></li>
                 </ul>
             </div>
         </div>
@@ -43,13 +43,13 @@ if (!isset($_COOKIE['saa']))
                         <h2 class="text-info">Add New Product</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                         <div class="container">
-                            <form>
-                                <div class="form-group"><label>Product Name</label><input class="form-control" type="text"></div>
-                                <div class="form-group"><label>Subject</label><input class="form-control" type="text"></div>
-                                <div class="form-group"><label>Product Category</label><input class="form-control" type="text"></div>
-                                <div class="form-group"><label>Description</label><textarea class="form-control"></textarea></div>
-                                <div class="form-group"><label>Product Images</label><input type="file"></div>
-                                <div class="form-group"><button class="btn btn-primary btn-block" type="button">Send</button></div>
+                            <form action="includes/newProduct.php.php" method="post">
+                                <div class="form-group"><label>Product Name</label><input class="form-control" type="text" name="Name"></div>
+                                <div class="form-group"><label>Subject</label><input class="form-control" type="text" name="ProductTitle"></div>
+                                <div class="form-group"><label>Product Category</label><input class="form-control" type="text" name="p_Category"></div>
+                                <div class="form-group"><label>Description</label><textarea class="form-control" name="Description"></textarea></div>
+                                <div class="form-group"><label>Product Images</label><input type="file" name="Img"></div>
+                                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Send</button></div>
                             </form>
                         </div>
                     </section>

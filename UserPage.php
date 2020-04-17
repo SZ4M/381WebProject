@@ -49,7 +49,7 @@ if (!isset($_COOKIE['vaa']))
                     <p></p>
                 </div>
                 <div class="col-md-5 feature-box"><i class="icon-pencil icon"></i>
-                    <h4>Add Product</h4>
+                    <h4><a href="AddProduct.php" class="nav-link">Add Product</a></h4>
                     <p></p>
                 </div>
                 <div class="table-responsive border rounded border-dark" style="width: 890px;height: 183px;font-size: 21px;margin-top: 43px;">
