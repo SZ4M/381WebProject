@@ -19,10 +19,9 @@
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.html">Login</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="registration.html">Signup</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="successProduct.php">Contact Us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="UserPage.php">Profile</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="includes/Logout.php">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -34,7 +33,7 @@
                 <h2 class="text-center">Product Adedd!</h2>
                 <p class="text-center">Thank You for Adding your prodcut with us!</p>
             </div>
-            <div class="buttons"><a class="btn btn-primary" role="button" href="#">Home Page</a><button class="btn btn-light" type="button">Profile</button></div>
+            <div class="buttons"><a class="btn btn-primary" role="button" href="index.php">Home Page</a><button class="btn btn-light" type="button"><a href="UserPage.php">Profile</a></button></div>
         </div>
     </div>
     <footer class="page-footer dark">
