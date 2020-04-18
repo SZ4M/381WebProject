@@ -43,8 +43,8 @@
                 <div class="col-sm-3">
                     <h5>Get started</h5>
                     <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="registration.html">Sign up</a></li>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="UserPage.php">Profile</a></li>
                     </ul>
                 </div>
             </div>

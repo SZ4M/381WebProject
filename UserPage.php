@@ -1,11 +1,18 @@
-
 <?php
 
 
 if (!isset($_COOKIE['vaa']))
     header('location:index.php?error=Please login ');
-?>
+include 'includes/DbConfig.php';
+mysqli_select_db($conn,$dbName);
+$userEmail = $_COOKIE['email'];
+$qUser = "select name from usertable where email = '$userEmail';";
+    $result= mysqli_query($conn,$qUser);
+$userName = mysqli_fetch_assoc($result)['name'];
 
+
+
+?>
 
 
 <!DOCTYPE html>
@@ -24,14 +31,15 @@ if (!isset($_COOKIE['vaa']))
 
 <body>
 <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-    <div class="container"><a class="navbar-brand logo" href="#">Brand</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+    <div class="container"><a class="navbar-brand logo" href="#">Brand</a>
+        <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
+                    class="navbar-toggler-icon"></span></button>
         <div class="collapse navbar-collapse"
              id="navcol-1">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Signup</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="includes/Logout.php">Signout</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="UserPage.php">Profile</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="includes/Logout.php">Logout</a></li>
 
             </ul>
         </div>
@@ -40,8 +48,13 @@ if (!isset($_COOKIE['vaa']))
 <main class="page">
     <section class="clean-block features">
         <div class="container">
-            <div class="d-inline float-left block-heading" style="margin-bottom: 0;margin-right: 39px;padding-bottom: 0;padding-right: 11px;padding-top: 24px;padding-left: 0;"><img class="rounded img-fluid border d-flex" style="width: 200;height: 132px;margin: 0px;" src="assets/img/avatars/avatar1.jpg" loading="auto">
-                <p class="lead border rounded d-table-cell float-none" style="font-size: 44px;"><strong>Othman</strong></p>
+            <div class="d-inline float-left block-heading"
+                 style="margin-bottom: 0;margin-right: 39px;padding-bottom: 0;padding-right: 11px;padding-top: 24px;padding-left: 0;">
+                <img class="rounded img-fluid border d-flex" style="width: 200;height: 132px;margin: 0px;"
+                     src="assets/img/avatars/avatar1.jpg" loading="auto">
+
+                <p class="lead border rounded d-table-cell float-none" style="font-size: 44px;"><strong><?php echo $userName?></strong>
+                </p>
             </div>
             <div class="row justify-content-center" style="margin-top: 50px;">
                 <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
@@ -52,7 +65,8 @@ if (!isset($_COOKIE['vaa']))
                     <h4><a href="AddProduct.php" class="nav-link">Add Product</a></h4>
                     <p></p>
                 </div>
-                <div class="table-responsive border rounded border-dark" style="width: 890px;height: 183px;font-size: 21px;margin-top: 43px;">
+                <div class="table-responsive border rounded border-dark"
+                     style="width: 890px;height: 183px;font-size: 21px;margin-top: 43px;">
                     <table class="table table-hover">
                         <thead>
                         <tr>
@@ -60,12 +74,22 @@ if (!isset($_COOKIE['vaa']))
                         </tr>
                         </thead>
                         <tbody>
-                        <tr>
-                            <td>p1</td>
-                        </tr>
-                        <tr>
-                            <td>p2</td>
-                        </tr>
+                        <?php
+                        $qProduct = "select p_name from products where user_id = '$userEmail'";
+
+                        $resultP = mysqli_query($conn,$qProduct);
+                        $pCounter = mysqli_num_rows($resultP);
+
+
+                            if($pCounter>0)
+                            while($userProdcuts = mysqli_fetch_assoc($resultP)){
+                                echo "<tr>
+                            <td>". $userProdcuts['p_name'] ."</td>
+                        </tr>";
+                        }
+                        ?>
+                        
+
                         </tbody>
                     </table>
                 </div>

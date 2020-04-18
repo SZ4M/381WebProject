@@ -3,7 +3,7 @@ include 'DbConfig.php';
 
 mysqli_select_db($conn,$dbName);
 
-$userID=$_COOKIE['userEmail'];
+$userID=$_COOKIE['email'];
 $p_name =$_POST['Name'];
 $p_Title=$_POST['ProductTitle'];
 $p_Category=$_POST['p_Category'];
