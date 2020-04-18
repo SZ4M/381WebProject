@@ -36,12 +36,12 @@
             <h2>Lorem ipsum dolor sit amet.</h2>
             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis
                 vitae leo.</p>
-            <form action="includes/searchtest.php" method="post">
-            <input type="search" class="bg-light border rounded border-white shadow" name="searchinput"
+            <form action="ResultPage.php" method="post">
+            <input type="search" class="bg-light border rounded border-white shadow" name="search"
                                      style="width: 440px;height: 44px;margin: 50px;"
                                      placeholder="Enter The Product.." autocomplete="on" autofocus required/>
 
-                <div class="form-group"><button class="btn btn-outline-light btn-lg" name="searchsub" type="submit">Search</button></div>
+                <div class="form-group"><button class="btn btn-outline-light btn-lg" name="searchSub" type="submit">Search</button></div>
 
                 </form>
         </div>
