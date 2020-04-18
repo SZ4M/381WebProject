@@ -2,8 +2,7 @@
 <?php
 
 
-if (!isset($_COOKIE['eaa']))
-    header('location:index.php?error=Please login ');
+
 
 
 include 'includes/DbConfig.php';
@@ -48,6 +47,11 @@ mysqli_select_db($conn, $dbName);
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Catalog Page</h2>
+                    <?php
+                    if (!isset($_COOKIE['eaa'])){
+                        echo " <h2 class=\"text-info\"><a href='login.php'>Please Login For More detailed Search</a></h2> ";
+                    }
+                    ?>
                     <p></p>
                 </div>
                 <div class="content">
@@ -112,22 +116,23 @@ mysqli_select_db($conn, $dbName);
                                 <div class="row no-gutters">
 
                                     <?php
-                                    if (isset($_POST['searchSub'])) {
+                                    if (!isset($_COOKIE['eaa'])){
+
+                                        if (isset($_POST['searchSub'])) {
                                         $searchInput = $_POST['search'];
                                         $searchQuery =
                                             "SELECT * FROM products WHERE p_name LIKE '%$searchInput%' OR p_Category LIKE '%$searchInput%'
                                              OR p_description LIKE '%$searchInput%'   ";
-                                                 $result = mysqli_query($conn, $searchQuery);
+                                        $result = mysqli_query($conn, $searchQuery);
 
-                                             $queryResult = mysqli_num_rows($result);
+                                        $queryResult = mysqli_num_rows($result);
 
                                         if ($queryResult > 0) {
-                                            while($row =mysqli_fetch_assoc($result)){
-                                                echo"
+                                            while ($row = mysqli_fetch_assoc($result)) {
+                                                echo "
                                          <div class=\"col-12 col-md-6 col-lg-4\">
                                         <div class=\"clean-product-item\">
-                                            <div class=\"image\"><a href=\"#\"><img class=\"img-fluid d-block mx-auto\" src=\"assets/img/tech/image2.jpg\"></a></div>
-                                            <div class=\"product-name\"><a href=\"#\">".$row['p_name']."</a></div>
+                                            <div class=\"product-name\"><a href=\"#\">" . $row['p_name'] . "</a></div>
                                             <div class=\"about\">
                                                 <div class=\"rating\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star-half-empty.svg\"><img src=\"assets/img/star-empty.svg\"></div>
                                                 <div class=\"price\">
@@ -145,8 +150,52 @@ mysqli_select_db($conn, $dbName);
 
                                         } else {
 
-                                        }
+                                            echo "    <h2 class=\"text-info\">NO RESULTS</h2>";
 
+                                        }
+                                    }
+
+                                    }else {
+
+
+                                        if (isset($_POST['searchSub'])) {
+                                            $searchInput = $_POST['search'];
+                                            $searchQuery =
+                                                "SELECT * FROM products WHERE p_name LIKE '%$searchInput%' OR p_Category LIKE '%$searchInput%'
+                                             OR p_description LIKE '%$searchInput%'   ";
+                                            $result = mysqli_query($conn, $searchQuery);
+
+                                            $queryResult = mysqli_num_rows($result);
+
+                                            if ($queryResult > 0) {
+                                                while ($row = mysqli_fetch_assoc($result)) {
+                                                    echo "
+                                         <div class=\"col-12 col-md-6 col-lg-4\">
+                                        <div class=\"clean-product-item\">
+                                            <div class=\"image\"><a href=\"#\"><img class=\"img-fluid d-block mx-auto\" src=\"assets/img/tech/image2.jpg\"></a></div>
+                                            <div class=\"product-name\"><a href=\"#\">" . $row['p_name'] . "</a></div>
+                                            <div class=\"about\">
+                                                <div class=\"rating\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star-half-empty.svg\"><img src=\"assets/img/star-empty.svg\"></div>
+                                                <div class=\"price\">
+                                                    <h3>$100</h3>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                                
+                                                
+                                                
+                                                ";
+
+                                                }
+
+                                            } else {
+
+                                                echo "    <h2 class=\"text-info\">NO RESULTS</h2>";
+
+                                            }
+
+                                        }
                                     }
 
 

@@ -26,7 +26,7 @@ if($counter==1){
     setcookie('saa','yes',time()+(3600*3),'/');
     setcookie('eaa','yes',time()+(3600*3),'/');
 
-    header('location:../ResultPage.php');
+    header('location:../index.php');
 }
 
 else{
