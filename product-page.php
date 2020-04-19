@@ -18,6 +18,7 @@ if (isset($_GET['test'])) {
     $row=mysqli_fetch_assoc($result);
     $testW= "" . $row['p_name'] . "";
     $disW="" . $row['p_description'] . "";
+    $pImg ="".$row['p_img']."";
 
 
 }
@@ -47,8 +48,9 @@ if (isset($_GET['test'])) {
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Signup</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="UserPage.php">Profile</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="AddProduct.php">Add New Product</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="includes/Logout.php.php">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -58,28 +60,33 @@ if (isset($_GET['test'])) {
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Product Page</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                 </div>
                 <div class="block-content">
                     <div class="product-info">
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="gallery">
-                                    <div class="sp-wrap"><a href="assets/img/tech/image1.jpg"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image1.jpg"></a><a href="assets/img/tech/image1.jpg"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image1.jpg"></a><a href="assets/img/tech/image1.jpg"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image1.jpg"></a></div>
+                                    <?php
+
+                                    echo"
+                                    <div class='sp-wrap'><a href='uploads/$pImg'><img class='img-fluid d-block mx-auto' src='uploads/$pImg'>></a><a href='assets/img/tech/image1.jpg'><img class='img-fluid d-block mx-auto' src='uploads/$pImg'></a><a href='uploads/$pImg'><img class='img-fluid d-block mx-auto' src='assets/img/tech/image1.jpg'></a></div>
                                 </div>
+                                ";?>
                             </div>
                             <div class="col-md-6">
                                 <div class="info">
 
-                                    <?php
+                            <?php
                                   echo "<h3> $testW </h3>";
 
                                     ?>
+                                  
+
 
 
                                     <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
                                     <div class="price">
-                                        <h3>$300.00</h3>
+<!--                                        <h3>$300.00</h3>-->
                                     </div><button class="btn btn-primary" type="button"><i class="icon-basket"></i>Add to Cart</button>
                                     <div class="summary">
                                         <?php

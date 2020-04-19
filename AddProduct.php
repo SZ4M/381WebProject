@@ -43,13 +43,13 @@ if (!isset($_COOKIE['saa']))
                         <h2 class="text-info">Add New Product</h2>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                         <div class="container">
-                            <form action="includes/newProduct.php" method="post">
+                            <form action="includes/newProduct.php" method="post" enctype="multipart/form-data">
                                 <div class="form-group"><label>Product Name</label><input class="form-control" type="text" name="Name"></div>
                                 <div class="form-group"><label>Subject</label><input class="form-control" type="text" name="ProductTitle"></div>
                                 <div class="form-group"><label>Product Category</label><input class="form-control" type="text" name="p_Category"></div>
                                 <div class="form-group"><label>Description</label><textarea class="form-control" name="Description"></textarea></div>
-                                <div class="form-group"><label>Product Images</label><input type="file" name="Img"></div>
-                                <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Send</button></div>
+                                <div class="form-group"><label>Product Images</label><input type="file" name="file"></div>
+                                <div class="form-group"><button class="btn btn-primary btn-block" type="submit" name="submit">Send</button></div>
                             </form>
                         </div>
                     </section>
