@@ -75,20 +75,19 @@ $userName = mysqli_fetch_assoc($result)['name'];
                         </thead>
                         <tbody>
                         <?php
-                        $qProduct = "select p_name from products where user_id = '$userEmail'";
+                        $qProduct = "select * from products where user_id = '$userEmail'";
 
                         $resultP = mysqli_query($conn,$qProduct);
                         $pCounter = mysqli_num_rows($resultP);
 
-
                             if($pCounter>0)
                             while($userProdcuts = mysqli_fetch_assoc($resultP)){
-                                echo "<tr>
-                            <td>". $userProdcuts['p_name'] ."</td>
+                                echo "<tr> 
+                            <td > <a href='product-page.php?test=" . $userProdcuts['p_id'] . "'>  ". $userProdcuts['p_name'] ." </a> </td>
                         </tr>";
                         }
                         ?>
-                        
+
 
                         </tbody>
                     </table>
