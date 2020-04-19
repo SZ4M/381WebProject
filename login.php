@@ -33,12 +33,24 @@
                 <h2 class="text-info">Log In</h2>
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
             </div>
+
+
+
+
             <form action="includes/CheckUser.php" method="post">
+
                 <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" name="EMAIL" id="email"></div>
                 <div class="form-group"><label for="password">Password</label><input class="form-control" type="password" name="PASSWORD" id="password"></div>
                 <div class="form-group">
                     <div class="form-check"><input class="form-check-input" type="checkbox" id="checkbox"><label class="form-check-label" for="checkbox">Remember me</label></div>
-                </div><button class="btn btn-primary btn-block" type="submit">Log In</button></form>
+
+                </div><button class="btn btn-primary btn-block" type="submit">Log In</button>
+
+                <span  style="  color: #d32a0e; margin-top: 35px; background: #ffe6e6; font-size:20px;margin-left: 30px"> <?php
+                    if (isset($_COOKIE['err'])) {
+                        echo $_COOKIE['err'] ;
+                        setcookie('err','',time()-8400,'/'); } ?> </span>
+            </form>
         </div>
     </section>
 </main>

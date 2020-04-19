@@ -15,7 +15,7 @@ $Result = mysqli_query($conn,$selected);
 
 $counter = mysqli_num_rows($Result) ;
 
-if($counter==1){
+if($counter==1|| $email==""){
 
     header('location:../registration.php');
 }
