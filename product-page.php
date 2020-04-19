@@ -4,6 +4,24 @@
 
 if (!isset($_COOKIE['waa']))
     header('location:index.php?error=Please login ');
+
+include 'includes/DbConfig.php';
+
+mysqli_select_db($conn, $dbName);
+
+if (isset($_GET['test'])) {
+    $pInput=$_GET['test'];
+    $pInputQuery="SELECT * FROM products WHERE p_id='$pInput' ";
+    $result = mysqli_query($conn, $pInputQuery);
+
+
+    $row=mysqli_fetch_assoc($result);
+    $testW= "" . $row['p_name'] . "";
+    $disW="" . $row['p_description'] . "";
+
+
+}
+
 ?>
 
 
@@ -52,14 +70,21 @@ if (!isset($_COOKIE['waa']))
                             </div>
                             <div class="col-md-6">
                                 <div class="info">
-                                    <h3>Lorem Ipsum</h3>
+
+                                    <?php
+                                  echo "<h3> $testW </h3>";
+
+                                    ?>
+
+
                                     <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
                                     <div class="price">
                                         <h3>$300.00</h3>
                                     </div><button class="btn btn-primary" type="button"><i class="icon-basket"></i>Add to Cart</button>
                                     <div class="summary">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec augue nunc, pretium at augue at, convallis pellentesque ipsum. Vestibulum diam risus, sagittis at fringilla at, pulvinar vel risus. Vestibulum dignissim
-                                            eu nulla eu imperdiet. Morbi mollis tellus a nunc vestibulum consequat. Quisque tristique elit et nibh dapibus sodales. Nam sollicitudin a urna sed iaculis.</p>
+                                        <?php
+                                       echo "<p> $disW </p>"
+                                        ?>
                                     </div>
                                 </div>
                             </div>
