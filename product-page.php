@@ -97,10 +97,31 @@ if (isset($_GET['test'])) {
                                <div class="price">
 <!--                                        <h3>$300.00</h3>-->
                                     </div>
-                                    <form action="includes/LikeProduct.php" method="post" >
-                                    <button class="btn btn-primary" type="submit" id="interestBtn" value="no" name="butt" ><i class="icon-heart" id="intrestIcon"
+                                    <?php
+                                    $likedQuery="SELECT User_ID FROM likedproducts WHERE Product_ID='$pInput' and User_ID = '$u_id' ";
+
+                                    $tR= mysqli_query($conn,$likedQuery);
+
+
+                                    $Zrow=mysqli_fetch_assoc($tR);
+                                    $tRow=mysqli_num_rows($tR);
+
+                                    if($tRow>0){
+                                        echo" <form action=\"includes/LikeProduct.php\" method=\"post\" >
+                                    <button class=\"btn btn-danger\" type=\"submit\" id=\"interestBtn\" value=\"no\" name=\"butt\" ><i class=\"icon-heart\" id=\"intrestIcon\"
                                          ></i> Intersted </button>
-                                    </form>
+                                    </form>";
+                                    }else{
+                                        echo " <form action=\"includes/LikeProduct.php\" method=\"post\" >
+                                    <button class=\"btn btn-primary\" type=\"submit\" id=\"interestBtn\" value=\"no\" name=\"butt\" ><i class=\"icon-heart\" id=\"intrestIcon\"
+                                         ></i> Intersted </button>
+                                    </form>";
+                                    }
+
+
+
+
+                                    ?>
 
                                     <script>
 
@@ -139,7 +160,7 @@ if (isset($_GET['test'])) {
 
                                     </script>
                                     <?php
-                                    $likedQuery="SELECT User_ID FROM likedproducts WHERE Product_ID='$pInput' ";
+                                    $likedQuery="SELECT User_ID FROM likedproducts WHERE Product_ID='$pInput' and User_ID ='$u_id' ";
 
                                     $tR= mysqli_query($conn,$likedQuery);
 
@@ -148,15 +169,17 @@ if (isset($_GET['test'])) {
                                     $tRow=mysqli_num_rows($tR);
 
                                     if($tRow>0){
-                                        if($Zrow['User_ID']==$u_id){
-                                            echo"<a href='MyMassages.php' >you already showed intrest you can massage </a>";
-                                        }else{
+
+                                            echo"<a href='MyMassages.php' >you already showed intrest you can massage </a>
+                                                    <form method='post' action=\"includes/newMassage.php?test=$pInput\">
+                                                    <textarea name='messageTxt'>
+                                                    
+</textarea>
+    <button class='btn btn-primary' type='submit' name='submit'>submit</button>
+</form>
+                                                            ";
+                                        }else
                                             echo "please like to send a message";
-                                        }
-
-                                    }else
-                                        echo "please like to send a message";
-
 
 
 

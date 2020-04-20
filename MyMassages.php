@@ -48,11 +48,32 @@ $userName = mysqli_fetch_assoc($result)['name'];
                 <form>
                     <div>
                         <ul class="nav nav-tabs">
+                            <?php
+                            $currentUser = $_COOKIE['email'];
+                            $qFromUser= "SELECT DISTINCT from_user_id from chat_message where to_user_id='$currentUser'";
+
+
+                            ?>
+
+
+
+
+
                             <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">User2</a></li>
-                            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-2">User3</a></li>
+
+
+
+
+
+
+
+                            <li class="nav-item"><a class="nav-link" active role="tab" data-toggle="tab" href="#tab-2">User3</a></li>
                             <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">User4</a></li>
                         </ul>
                         <div class="tab-content">
+
+
+
                             <div class="tab-pane active" role="tabpanel" id="tab-1">
                                 <div class="table-responsive table-bordered">
                                     <table class="table table-bordered table-hover">
@@ -67,6 +88,11 @@ $userName = mysqli_fetch_assoc($result)['name'];
                                     </table>
                                 </div>
                             </div>
+
+
+
+
+
                             <div class="tab-pane" role="tabpanel" id="tab-2">
                                 <p>Content for tab 2.</p>
                             </div>
