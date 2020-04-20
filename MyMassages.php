@@ -47,10 +47,80 @@ $userName = mysqli_fetch_assoc($result)['name'];
                 </div>
                 <form>
                     <div>
-                        <ul class="nav nav-tabs">
-                            <?php
+
+                        <?php
                             $currentUser = $_COOKIE['email'];
                             $qFromUser= "SELECT DISTINCT from_user_id from chat_message where to_user_id='$currentUser'";
+                            $allMassages="SELECT * from chat_message where to_user_id='$currentUser' ";
+                            $DR=mysqli_query($conn,$allMassages);
+                              $rowB=mysqli_num_rows($DR);
+
+                            $DT= mysqli_query($conn,$qFromUser);
+                            $rowD=mysqli_num_rows($DT);
+                            $tet=0;
+
+                                    if($rowD>0){
+
+                                     while ($row = mysqli_fetch_assoc($DT)) {
+                                        //" . $row['p_name'] . "
+                                         $tet=$tet+1;
+                                         echo"   
+   
+                                                                  <ul class=\"nav nav-tabs\">
+
+                                
+                            <li class=\"nav-item\"><a class=\"nav-link active\" active role=\"tab\" data-toggle=\"tab\" href=\"#$tet\">" .$row['from_user_id']. "</a></li>
+                            
+                          
+                                     
+                                                             </ul>
+
+                            
+                                     <div class=\"tab-content\">
+
+                            <div class=\"tab-pane active\" role=\"tabpanel\" id=\"\">
+                                <div class=\"table-responsive table-bordered\">
+                                    <table class=\"table table-bordered table-hover\">
+                                        <tbody>
+                                         ";
+                                         $hello="" .$row['from_user_id']. "";
+
+                                         while($KRow=mysqli_fetch_assoc($DR)){
+                                             $from2="" .$KRow['from_user_id']. "";
+                                             if($hello==$from2){
+                                                 $from3="" .$KRow['chat_message']. "";
+                                        echo "
+                                        <tr>
+                                            <td>$from2 : $from3   </td>
+                                        </tr>
+                                        ";
+
+                                        }
+                                         }
+
+                                        echo "
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            
+                               </div>
+                               ";
+
+
+
+
+
+
+
+                                     }
+
+                                    }else
+                                        echo"<P> YOU HAVE NO MASSAGES </P>"
+
+
+
+
 
 
                             ?>
@@ -59,48 +129,12 @@ $userName = mysqli_fetch_assoc($result)['name'];
 
 
 
-                            <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" href="#tab-1">User2</a></li>
 
 
 
 
 
-
-
-                            <li class="nav-item"><a class="nav-link" active role="tab" data-toggle="tab" href="#tab-2">User3</a></li>
-                            <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" href="#tab-3">User4</a></li>
-                        </ul>
-                        <div class="tab-content">
-
-
-
-                            <div class="tab-pane active" role="tabpanel" id="tab-1">
-                                <div class="table-responsive table-bordered">
-                                    <table class="table table-bordered table-hover">
-                                        <tbody>
-                                            <tr>
-                                                <td>CurrentUser1 :</td>
-                                            </tr>
-                                            <tr>
-                                                <td>User2 :</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-
-
-
-
-
-                            <div class="tab-pane" role="tabpanel" id="tab-2">
-                                <p>Content for tab 2.</p>
-                            </div>
-                            <div class="tab-pane" role="tabpanel" id="tab-3">
-                                <p>Content for tab 3.</p>
-                            </div>
                         </div>
-                    </div>
                     <div class="form-group"><label>Message</label><textarea class="form-control"></textarea></div>
                     <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Send</button></div>
                 </form>
