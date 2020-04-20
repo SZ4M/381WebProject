@@ -72,8 +72,10 @@ $userName = mysqli_fetch_assoc($result)['name'];
                         <thead>
                         <tr>
                             <th>Products</th>
+
                         </tr>
                         </thead>
+
                         <tbody>
                         <?php
                         $qProduct = "select * from products where user_id = '$userEmail'";
@@ -83,8 +85,19 @@ $userName = mysqli_fetch_assoc($result)['name'];
 
                             if($pCounter>0)
                             while($userProdcuts = mysqli_fetch_assoc($resultP)){
+                                $pId = $userProdcuts['p_id'];
                                 echo "<tr> 
-                            <td > <a href='product-page.php?test=" . $userProdcuts['p_id'] . "'>  ". $userProdcuts['p_name'] ." </a> </td>
+                            <td  ><a href='product-page.php?test=" . $userProdcuts['p_id'] . "'>  ". $userProdcuts['p_name'] ." </a> 
+                             
+                                 
+
+                            
+                            
+                           <div   style='display: inline; margin-left:10% '><form method='post' style='display:inline' action=\"includes/remove.php?p2delete='$pId'\"><button type='submit'  name='submit'  >  remove</button> </form></div>   
+                                                   
+                           <div   style='display: inline; margin-left:10% '><form method='post' style='display:inline' action=\"includes/test.php?Pro_id = '$pId'\"><button type='submit'  name='submit'  >  edit</button> </form></div>   
+   </td>
+
                         </tr>";
                         }
                         ?>
