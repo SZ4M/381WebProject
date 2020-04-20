@@ -3,7 +3,7 @@
 
 
 if (!isset($_COOKIE['waa']))
-    header('location:index.php?error=Please login ');
+    header('location:Login.php?error=Please login ');
 
 include 'includes/DbConfig.php';
 
@@ -16,9 +16,10 @@ if (isset($_GET['test'])) {
 
 
     $row=mysqli_fetch_assoc($result);
-    $testW= "" . $row['p_name'] . "";
-    $disW="" . $row['p_description'] . "";
-    $pImg ="".$row['p_img']."";
+    $productName= "" . $row['p_name'] . "";
+    $prodcutDesc="" . $row['p_description'] . "";
+    $productImg ="".$row['p_img']."";
+    $productCategory = "".$row['p_Category'];
 
 
 }
@@ -69,7 +70,7 @@ if (isset($_GET['test'])) {
                                     <?php
 
                                     echo"
-                                    <div class='sp-wrap'><a href='uploads/$pImg'><img class='img-fluid d-block mx-auto' src='uploads/$pImg'>></a><a href='assets/img/tech/image1.jpg'><img class='img-fluid d-block mx-auto' src='uploads/$pImg'></a><a href='uploads/$pImg'><img class='img-fluid d-block mx-auto' src='assets/img/tech/image1.jpg'></a></div>
+                                    <div class='sp-wrap'><a href='uploads/$productImg'><img class='img-fluid d-block mx-auto' src='uploads/$productImg'></a><a href='uploads/$productImg'><img class='img-fluid d-block mx-auto' src='uploads/$productImg'></a></div>
                                 </div>
                                 ";?>
                             </div>
@@ -77,20 +78,37 @@ if (isset($_GET['test'])) {
                                 <div class="info">
 
                             <?php
-                                  echo "<h3> $testW </h3>";
+                                // Product Name
+                                  echo "<h3> $productName </h3>";
 
                                     ?>
                                   
 
 
 
-                                    <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                    <div class="price">
+<!--                                    <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
+                               <div class="price">
 <!--                                        <h3>$300.00</h3>-->
-                                    </div><button class="btn btn-primary" type="button"><i class="icon-basket"></i>Add to Cart</button>
+                                    </div><button class="btn btn-primary" type="button" id="interestBtn"><i class="icon-heart" id="intrestIcon"
+                                         ></i>Intersted </button>
+                                    <script>
+                                        $(document).ready(function () {
+
+
+
+                                        $("#interestBtn").click(function(){
+
+                                            $("#interestBtn").toggleClass("btn btn-danger");
+                                            $("#intrestIcon").toggleClass("icon-minus");
+
+                                        });
+                                        });
+
+                                    </script>
+
                                     <div class="summary">
                                         <?php
-                                       echo "<p> $disW </p>"
+                                       echo "<p> $productCategory </p>"
                                         ?>
                                     </div>
                                 </div>
@@ -101,57 +119,16 @@ if (isset($_GET['test'])) {
                         <div>
                             <ul class="nav nav-tabs" id="myTab">
                                 <li class="nav-item"><a class="nav-link active" role="tab" data-toggle="tab" id="description-tab" href="#description">Description</a></li>
-                                <li class="nav-item"><a class="nav-link" role="tab" data-toggle="tab" id="specifications-tabs" href="#specifications">Specifications</a></li>
                             </ul>
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane active fade show description" role="tabpanel" id="description">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing
-                                        elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <figure class="figure"><img class="img-fluid figure-img" src="assets/img/tech/image3.png"></figure>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <h4>Lorem Ipsum</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-7 right">
-                                            <h4>Lorem Ipsum</h4>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                        </div>
-                                        <div class="col-md-5">
-                                            <figure class="figure"><img class="img-fluid figure-img" src="assets/img/tech/image3.png"></figure>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane fade show specifications" role="tabpanel" id="specifications">
-                                    <div class="table-responsive table-bordered">
-                                        <table class="table table-bordered">
-                                            <tbody>
-                                                <tr>
-                                                    <td class="stat">Display</td>
-                                                    <td>5.2"</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="stat">Camera</td>
-                                                    <td>12MP</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="stat">RAM</td>
-                                                    <td>4GB</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="stat">OS</td>
-                                                    <td>iOS</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                                    <?php
+                                    echo "
+                                  
+                                    <p> $prodcutDesc </p>
+                                    <div class='row'>
+                                        " ?>
+
                     </div>
                     <div class="clean-related-items">
                         <h3>Related Products</h3>

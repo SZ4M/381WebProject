@@ -23,7 +23,7 @@
                 <li class="nav-item" role="presentation"><a class="nav-link active" href="index.php">Home</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
                 <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Signup</a></li>
-                <li class="nav-item" role="presentation"><a class="nav-link" href="UserPage.php">MyPage</a></li>
+                <li class="nav-item" role="presentation"><a class="nav-link" href="UserPage.php">Profile</a></li>
 
             </ul>
         </div>
@@ -33,9 +33,8 @@
     <section class="clean-block clean-hero"
              style="background-image:url(&quot;assets/img/tech/image4.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
         <div class="text" id="homePageSearchSection">
-            <h2>Lorem ipsum dolor sit amet.</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis
-                vitae leo.</p>
+            <h2>E-Commerce Brand.</h2>
+            <p>Your First Website For Trading.</p>
             <form action="ResultPage.php" method="post">
             <input type="search" class="bg-light border rounded border-white shadow" name="search"
                                      style="width: 440px;height: 44px;margin: 50px;"

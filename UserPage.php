@@ -2,7 +2,7 @@
 
 
 if (!isset($_COOKIE['vaa']))
-    header('location:index.php?error=Please login ');
+    header('location:Login.php?error=Please login ');
 include 'includes/DbConfig.php';
 mysqli_select_db($conn,$dbName);
 $userEmail = $_COOKIE['email'];
