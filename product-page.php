@@ -23,7 +23,9 @@ if (isset($_GET['test'])) {
     $productCategory = "".$row['p_Category'];
     $u_id = $_COOKIE['email'];
     $pInput =$row['p_id'];
+
 }
+
 
 ?>
 
@@ -96,6 +98,9 @@ if (isset($_GET['test'])) {
                                     <button class="btn btn-primary" type="submit" id="interestBtn" value="no"><i class="icon-heart" id="intrestIcon"
                                          ></i> Intersted </button>
                                     <script>
+
+
+
                                         $(document).ready(function () {
 
 
@@ -111,10 +116,21 @@ if (isset($_GET['test'])) {
                                             $.post(ajaxurl, data, function (response) {
                                                     // Response div goes here.
                                                     alert("action performed successfully");
+
+
                                                 });
                                             $("#interestBtn").addClass("btn btn-danger");
                                             $("#intrestIcon").addClass("icon-minus");
+
+                                            <?php
+                                            $insertQuery2 = "insert into likedproducts(User_ID,Product_ID) values('0','0')";
+                                            mysqli_query($conn,$insertQuery2);
+
+                                            ?>
+
+
                                             });
+
 
 
 
