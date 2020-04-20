@@ -12,4 +12,24 @@ if(isset($_POST['submit'])){
     mysqli_query($conn,$qInsert);
     header("location:../MyMassages.php");
 
+}elseif (isset($_POST['submit2'])){
+
+    $chatTxt = $_POST['messageTxt'];
+
+    $fromUser = $_COOKIE['email'];
+
+    $toID=$_POST['toID'];
+    $getUserId2 = "select email from usertable where email LIKE '%$toID%' ";
+    $qResult2= mysqli_query($conn,$getUserId2);
+    $toUser2 = mysqli_fetch_row($qResult2)[0];
+
+
+    $qInsert2 = "insert into chat_message(to_user_id,from_user_id,chat_message) values ('$toUser2','$fromUser','$chatTxt')";
+    mysqli_query($conn,$qInsert2);
+
+    header("location:../index.php?test=hello");
+
+
+
+
 }

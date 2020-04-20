@@ -61,45 +61,47 @@ $userName = mysqli_fetch_assoc($result)['name'];
 
                                     if($rowD>0){
 
+                                        echo"       <ul class=\"nav nav-tabs\">   
+                      
+                            <li class=\"nav-item\"><a class=\"nav-link active\" active role=\"tab\" data-toggle=\"tab\" href=''>messages</a></li>
+                            </ul>
+                            
+                            
+";
+
                                      while ($row = mysqli_fetch_assoc($DT)) {
                                         //" . $row['p_name'] . "
-                                         $tet=$tet+1;
                                          echo"   
    
-                                                                  <ul class=\"nav nav-tabs\">
-
-                                
-                            <li class=\"nav-item\"><a class=\"nav-link active\" active role=\"tab\" data-toggle=\"tab\" href=\"#$tet\">" .$row['from_user_id']. "</a></li>
-                            
-                          
-                                     
-                                                             </ul>
 
                             
                                      <div class=\"tab-content\">
 
-                            <div class=\"tab-pane active\" role=\"tabpanel\" id=\"\">
+                            <div class=\"tab-pane active\" role=\"tabpanel\" id=\"" .$row['from_user_id']. "\">
                                 <div class=\"table-responsive table-bordered\">
                                     <table class=\"table table-bordered table-hover\">
                                         <tbody>
                                          ";
+
                                          $hello="" .$row['from_user_id']. "";
 
+                                         $allMassages2=
+                                         $DQ=mysqli_query($conn,"SELECT * from chat_message where to_user_id='$currentUser' AND from_user_id= '$hello'" );
+
                                          while($KRow=mysqli_fetch_assoc($DR)){
-                                             $from2="" .$KRow['from_user_id']. "";
-                                             if($hello==$from2){
-                                                 $from3="" .$KRow['chat_message']. "";
+                                             $MassageHere="" .$KRow['chat_message']. "";
+                                                $hi=$KRow['from_user_id'];
                                         echo "
                                         <tr>
-                                            <td>$from2 : $from3   </td>
+                                            <td>$hi : $MassageHere   </td>
                                         </tr>
                                         ";
 
                                         }
-                                         }
+
+
 
                                         echo "
-                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -126,17 +128,16 @@ $userName = mysqli_fetch_assoc($result)['name'];
                             ?>
 
 
+                </form>
 
 
+            </div>
 
+                    <form method="post" action="includes/newMassage.php">
+                    <div class="form-group"><label>TO</label><textarea name="toID" class="form-control"></textarea></div>
 
-
-
-
-
-                        </div>
-                    <div class="form-group"><label>Message</label><textarea class="form-control"></textarea></div>
-                    <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Send</button></div>
+                    <div class="form-group"><label>Message</label><textarea class="form-control" name="messageTxt"></textarea></div>
+                    <div class="form-group"><button class="btn btn-primary btn-block" type="submit" name="submit2">Send</button></div>
                 </form>
             </div>
         </section>
