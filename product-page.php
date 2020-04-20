@@ -123,7 +123,7 @@ if (isset($_GET['test'])) {
                                             $("#intrestIcon").addClass("icon-minus");
 
                                             <?php
-                                            $insertQuery2 = "insert into likedproducts(User_ID,Product_ID) values('0','0')";
+                                            $insertQuery2 = "insert into likedproducts(User_ID,Product_ID) values('$u_id','$pInput')";
                                             mysqli_query($conn,$insertQuery2);
 
                                             ?>

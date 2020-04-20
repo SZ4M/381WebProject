@@ -57,8 +57,9 @@ $userName = mysqli_fetch_assoc($result)['name'];
                 </p>
             </div>
             <div class="row justify-content-center" style="margin-top: 50px;">
-                <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
-                    <h4>My List</h4>
+
+                <div class="col-md-5 feature-box"><i class="icon-envelope icon"></i>
+                    <h4><a href="MyMassages.php" class="nav-link">My Massages</a></h4>
                     <p></p>
                 </div>
                 <div class="col-md-5 feature-box"><i class="icon-pencil icon"></i>
