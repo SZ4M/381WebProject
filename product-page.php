@@ -8,7 +8,8 @@ if (!isset($_COOKIE['waa']))
 include 'includes/DbConfig.php';
 
 mysqli_select_db($conn, $dbName);
-
+$u_id='';
+$pInput='';
 if (isset($_GET['test'])) {
     $pInput=$_GET['test'];
     $pInputQuery="SELECT * FROM products WHERE p_id='$pInput' ";
@@ -20,8 +21,8 @@ if (isset($_GET['test'])) {
     $prodcutDesc="" . $row['p_description'] . "";
     $productImg ="".$row['p_img']."";
     $productCategory = "".$row['p_Category'];
-
-
+    $u_id = $_COOKIE['email'];
+    $pInput =$row['p_id'];
 }
 
 ?>
@@ -39,6 +40,8 @@ if (isset($_GET['test'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
 </head>
 
@@ -89,26 +92,40 @@ if (isset($_GET['test'])) {
 <!--                                    <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>-->
                                <div class="price">
 <!--                                        <h3>$300.00</h3>-->
-                                    </div><button class="btn btn-primary" type="button" id="interestBtn"><i class="icon-heart" id="intrestIcon"
-                                         ></i>Intersted </button>
+                                    </div>
+                                    <button class="btn btn-primary" type="submit" id="interestBtn" value="no"><i class="icon-heart" id="intrestIcon"
+                                         ></i> Intersted </button>
                                     <script>
                                         $(document).ready(function () {
 
 
 
+
+
                                         $("#interestBtn").click(function(){
 
-                                            $("#interestBtn").toggleClass("btn btn-danger");
-                                            $("#intrestIcon").toggleClass("icon-minus");
+
+
+                                            var ajaxurl = 'includes/LikeProduct.php';
+                                                    data =  {'action': 'yes'};
+                                            $.post(ajaxurl, data, function (response) {
+                                                    // Response div goes here.
+                                                    alert("action performed successfully");
+                                                });
+                                            $("#interestBtn").addClass("btn btn-danger");
+                                            $("#intrestIcon").addClass("icon-minus");
+                                            });
+
+
 
                                         });
-                                        });
+
 
                                     </script>
 
                                     <div class="summary">
                                         <?php
-                                       echo "<p> $productCategory </p>"
+                                       echo "<p font-size='30px'> $productCategory </p>"
                                         ?>
                                     </div>
                                 </div>
