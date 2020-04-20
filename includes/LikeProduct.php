@@ -1,13 +1,21 @@
 <?php
+session_start();
 include 'DbConfig.php';
+mysqli_select_db($conn, $dbName);
+$testing= $_SESSION['HELP'];
+$U_ID=$_SESSION['HELP2'];
+
+$insertQuery3 = "insert into likedproducts(User_ID,Product_ID) values('$U_ID','$testing')";
+if(isset($_POST['butt']))
+mysqli_query($conn,$insertQuery3);
 
 
-$insertQuery = "insert into likedproducts(User_ID,Product_ID) values('$u_id','$pInput')";
-if(isset($_POST['action']))
-    if($_POST['action']=='yes')
-        mysqli_query($conn,$insertQuery);
+header("location:../product-page.php?test=$testing");
 
 
 
 
 ?>
+
+
+

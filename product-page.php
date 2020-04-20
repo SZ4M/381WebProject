@@ -1,6 +1,6 @@
 
 <?php
-
+session_start();
 
 if (!isset($_COOKIE['waa']))
     header('location:Login.php?error=Please login ');
@@ -12,6 +12,7 @@ $u_id='';
 $pInput='';
 if (isset($_GET['test'])) {
     $pInput=$_GET['test'];
+    $_SESSION['HELP']=$pInput;
     $pInputQuery="SELECT * FROM products WHERE p_id='$pInput' ";
     $result = mysqli_query($conn, $pInputQuery);
 
@@ -22,7 +23,8 @@ if (isset($_GET['test'])) {
     $productImg ="".$row['p_img']."";
     $productCategory = "".$row['p_Category'];
     $u_id = $_COOKIE['email'];
-    $pInput =$row['p_id'];
+    $_SESSION['HELP2']=$u_id;
+  //  $pInput =$row['p_id'];
 
 }
 
@@ -95,10 +97,12 @@ if (isset($_GET['test'])) {
                                <div class="price">
 <!--                                        <h3>$300.00</h3>-->
                                     </div>
-                                    <button class="btn btn-primary" type="submit" id="interestBtn" value="no"><i class="icon-heart" id="intrestIcon"
+                                    <form action="includes/LikeProduct.php" method="post" >
+                                    <button class="btn btn-primary" type="submit" id="interestBtn" value="no" name="butt" ><i class="icon-heart" id="intrestIcon"
                                          ></i> Intersted </button>
-                                    <script>
+                                    </form>
 
+                                    <script>
 
 
                                         $(document).ready(function () {
@@ -122,11 +126,7 @@ if (isset($_GET['test'])) {
                                             $("#interestBtn").addClass("btn btn-danger");
                                             $("#intrestIcon").addClass("icon-minus");
 
-                                            <?php
-                                            $insertQuery2 = "insert into likedproducts(User_ID,Product_ID) values('$u_id','$pInput')";
-                                            mysqli_query($conn,$insertQuery2);
 
-                                            ?>
 
 
                                             });
@@ -138,6 +138,30 @@ if (isset($_GET['test'])) {
 
 
                                     </script>
+                                    <?php
+                                    $likedQuery="SELECT User_ID FROM likedproducts WHERE Product_ID='$pInput' ";
+
+                                    $tR= mysqli_query($conn,$likedQuery);
+
+
+                                    $Zrow=mysqli_fetch_assoc($tR);
+                                    $tRow=mysqli_num_rows($tR);
+
+                                    if($tRow>0){
+                                        if($Zrow['User_ID']==$u_id){
+                                            echo"<a href='MyMassages.php' >you already showed intrest you can massage </a>";
+                                        }else{
+                                            echo "please like to send a message";
+                                        }
+
+                                    }else
+                                        echo "please like to send a message";
+
+
+
+
+
+                                    ?>
 
                                     <div class="summary">
                                         <?php
