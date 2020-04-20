@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 if (!isset($_COOKIE['vaa']))
     header('location:Login.php?error=Please login ');
@@ -83,8 +83,12 @@ $userName = mysqli_fetch_assoc($result)['name'];
 
                             if($pCounter>0)
                             while($userProdcuts = mysqli_fetch_assoc($resultP)){
+                                $allo="" . $userProdcuts['p_id'] . "";
+                                $_SESSION['REMOVE']=$allo;
                                 echo "<tr> 
-                            <td > <a href='product-page.php?test=" . $userProdcuts['p_id'] . "'>  ". $userProdcuts['p_name'] ." </a> </td>
+                            <td > <a href='product-page.php?test=" . $userProdcuts['p_id'] . "'>  ". $userProdcuts['p_name'] ." </a>  <button
+                            
+                            ><a href='includes/remove2.php?test3=$allo'>remove</a>  </button>    </td>
                         </tr>";
                         }
                         ?>
