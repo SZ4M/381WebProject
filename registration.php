@@ -31,7 +31,6 @@
         <div class="container">
             <div class="block-heading">
                 <h2 class="text-info">Registration</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
             </div>
             <form action="includes/regCheck.php" method="post">
                 <div class="form-group"><label for="name">Name</label><input class="form-control item" type="text" name="NAME" id="name"></div>

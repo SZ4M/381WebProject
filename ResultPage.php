@@ -121,10 +121,7 @@ mysqli_select_db($conn, $dbName);
                                         <div class=\"clean-product-item\">
                                             <div class=\"product-name\"><a href='product-page.php?test=" . $row['p_id'] . "'>" . $row['p_name'] . "</a></div>
                                             <div class=\"about\">
-                                                <div class=\"rating\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star-half-empty.svg\"><img src=\"assets/img/star-empty.svg\"></div>
-                                                <div class=\"price\">
-                                                    <h3>$100</h3>
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>
@@ -162,9 +159,7 @@ mysqli_select_db($conn, $dbName);
                                             <div class=\"image\"><a href=\"#\"><img class=\"img-fluid d-block mx-auto\" src=\"uploads/" . $row['p_img'] . "\"></a></div>
                                             <div class=\"product-name\"><a href='product-page.php?test=" . $row['p_id'] . "'>" . $row['p_name'] . "</a></div>
                                             <div class=\"about\">
-                                                <div class=\"rating\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star-half-empty.svg\"><img src=\"assets/img/star-empty.svg\"></div>
-                                                <div class=\"price\">
-                                                </div>
+                                                
                                             </div>
                                         </div>
                                     </div>

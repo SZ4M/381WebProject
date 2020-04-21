@@ -88,12 +88,20 @@ $userName = mysqli_fetch_assoc($result)['name'];
                                // $pId = $userProdcuts['p_id'];
                                 $allo="" . $userProdcuts['p_id'] . "";
                                 $_SESSION['REMOVE']=$allo;
+                                $_SESSION['EDIT']=$allo;
+
                                 echo "<tr> 
                             <td  ><a href='product-page.php?test=" . $userProdcuts['p_id'] . "'>  ". $userProdcuts['p_name'] ." </a> 
+                            <td>
+                            <button class='btn btn-info'
                             
-                            <button
+                            ><a href='includes/tes.php?test3=$allo' >Edit</a>  </button>  
+                                </td>
+                             <td> <button class='btn btn-danger'
                             
-                            ><a href='includes/remove2.php?test3=$allo'>remove</a>  </button>    </td>
+                            ><a href='includes/remove2.php?test3=$allo' style='text-decoration-style: unset'>Remove</a>  </button>
+                              </td>
+                              </td>
                              
                                  
                             

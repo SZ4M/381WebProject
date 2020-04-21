@@ -30,7 +30,7 @@ if (!isset($_COOKIE['saa']))
                 <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="UserPage.php">Profile</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="includes/Logout.php">Signout</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="includes/Logout.php">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -41,11 +41,9 @@ if (!isset($_COOKIE['saa']))
                 <div class="block-heading">
                     <section class="clean-block clean-form dark">
                         <h2 class="text-info">Add New Product</h2>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in, mattis vitae leo.</p>
                         <div class="container">
                             <form action="includes/newProduct.php" method="post" enctype="multipart/form-data">
                                 <div class="form-group"><label>Product Name</label><input class="form-control" type="text" name="Name"></div>
-                                <div class="form-group"><label>Subject</label><input class="form-control" type="text" name="ProductTitle"></div>
                                 <div class="form-group"><label>Product Category</label><input class="form-control" type="text" name="p_Category"></div>
                                 <div class="form-group"><label>Description</label><textarea class="form-control" name="Description"></textarea></div>
                                 <div class="form-group"><label>Product Images</label><input type="file" name="file"></div>

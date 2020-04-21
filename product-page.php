@@ -97,31 +97,10 @@ if (isset($_GET['test'])) {
                                <div class="price">
 <!--                                        <h3>$300.00</h3>-->
                                     </div>
-                                    <?php
-                                    $likedQuery="SELECT User_ID FROM likedproducts WHERE Product_ID='$pInput' and User_ID = '$u_id' ";
-
-                                    $tR= mysqli_query($conn,$likedQuery);
-
-
-                                    $Zrow=mysqli_fetch_assoc($tR);
-                                    $tRow=mysqli_num_rows($tR);
-
-                                    if($tRow>0){
-                                        echo" <form action=\"includes/LikeProduct.php\" method=\"post\" >
-                                    <button class=\"btn btn-danger\" type=\"submit\" id=\"interestBtn\" value=\"no\" name=\"butt\" ><i class=\"icon-heart\" id=\"intrestIcon\"
+                                    <form action="includes/LikeProduct.php" method="post" >
+                                    <button class="btn btn-primary" type="submit" id="interestBtn" value="no" name="butt" ><i class="icon-heart" id="intrestIcon"
                                          ></i> Intersted </button>
-                                    </form>";
-                                    }else{
-                                        echo " <form action=\"includes/LikeProduct.php\" method=\"post\" >
-                                    <button class=\"btn btn-primary\" type=\"submit\" id=\"interestBtn\" value=\"no\" name=\"butt\" ><i class=\"icon-heart\" id=\"intrestIcon\"
-                                         ></i> Intersted </button>
-                                    </form>";
-                                    }
-
-
-
-
-                                    ?>
+                                    </form>
 
                                     <script>
 
@@ -171,11 +150,8 @@ if (isset($_GET['test'])) {
                                     if($tRow>0){
 
                                             echo"<a href='MyMassages.php' >you already showed intrest you can massage </a>
-                                                    <form method='post' action=\"includes/newMassage.php?test=$pInput\">
-                                                    <textarea name='messageTxt'>
-                                                    
-</textarea>
-    <button class='btn btn-primary' type='submit' name='submit'>submit</button>
+                                                    <form>
+                                                    <textarea name
 </form>
                                                             ";
                                         }else
@@ -210,40 +186,7 @@ if (isset($_GET['test'])) {
                                         " ?>
 
                     </div>
-                    <div class="clean-related-items">
-                        <h3>Related Products</h3>
-                        <div class="items">
-                            <div class="row justify-content-center">
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="clean-related-item">
-                                        <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
-                                        <div class="related-name"><a href="#">Lorem Ipsum dolor</a>
-                                            <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                            <h4>$300</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="clean-related-item">
-                                        <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
-                                        <div class="related-name"><a href="#">Lorem Ipsum dolor</a>
-                                            <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                            <h4>$300</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-lg-4">
-                                    <div class="clean-related-item">
-                                        <div class="image"><a href="#"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
-                                        <div class="related-name"><a href="#">Lorem Ipsum dolor</a>
-                                            <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg"></div>
-                                            <h4>$300</h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </section>
